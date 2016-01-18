@@ -121,7 +121,9 @@ REST_FRAMEWORK = {
 }
 
 import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config(
+	default='postgres://plentificuser:passwd@localhost/propertysale'
+)
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
