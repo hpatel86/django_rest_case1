@@ -12,7 +12,7 @@ class TimeSeriesSerializer(serializers.Serializer):
 	"""Serializer to calculate the time seriese of average property sale
 		per property type"""
 
-	location = serializers.CharField(max_length=8)
+	location = serializers.CharField(max_length=4)
 	date_from = serializers.DateField(input_formats=['%B %Y'])
 	date_to = serializers.DateField(input_formats=['%B %Y'])
 
@@ -58,7 +58,7 @@ class TimeSeriesSerializer(serializers.Serializer):
 class TransactionHistoSerializer(serializers.Serializer):
 	""" Transaction histogram serializer """
 
-	location = serializers.CharField(max_length=8, required=False)
+	location = serializers.CharField(max_length=4, required=False)
 	date = serializers.DateField(input_formats=['%B %Y'])
 
 

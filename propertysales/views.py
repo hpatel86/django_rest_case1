@@ -9,8 +9,15 @@ from serializers import (
 	TransactionHistoSerializer
 )
 
+from models import PropertySale
 
 class TimeSeriesView(APIView):
+
+	def get(self, request, format=None):
+		property_sales = PropertySale.objects.values().order_by(
+			'sale_date'
+		)[:10]
+		return Response(property_sales)
 
 	def post(self, request, format=None):
 		serializer = TimeSeriesSerializer(data=request.data)
@@ -25,6 +32,12 @@ class TimeSeriesView(APIView):
 
 
 class HistogramView(APIView):
+
+	def get(self, request, format=None):
+		property_sales = PropertySale.objects.values().order_by(
+			'sale_date'
+		)[:10]
+		return Response(property_sales)
 
 	def post(self, request, format=None):
 		serializer = TransactionHistoSerializer(data=request.data)
