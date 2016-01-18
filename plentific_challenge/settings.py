@@ -122,7 +122,7 @@ REST_FRAMEWORK = {
 
 import dj_database_url
 DATABASES['default'] = dj_database_url.config(
-	default='postgres://plentificuser:passwd@localhost/propertysale'
+	default='postgres://plentificuser:passwd@localhost:5432/propertysale'
 )
 
 ALLOWED_HOSTS = ['*']
